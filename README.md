@@ -16,12 +16,14 @@ Built a virtualized enterprise-style hybrid identity environment using Oracle Vi
 ### Active Directory
 - Installed AD DS role and promoted DC01 as Domain Controller
 - Created enterprise-style OU hierarchy: Corp → IT, HR, Sales, Finance, Disabled Users
+- <img width="586" height="396" alt="image" src="https://github.com/user-attachments/assets/edd583e2-4b14-4d20-ac9c-8ad49fdbb98f" />
 - Enabled accidental deletion protection on all OUs
 
 ### PowerShell Automation
 - Scripted provisioning of 13 domain users across 4 departments
-- <img width="586" height="396" alt="image" src="https://github.com/user-attachments/assets/92177449-8827-40e4-8285-b429bf05ef93" />
+- <img width="596" height="363" alt="image" src="https://github.com/user-attachments/assets/8af8f3b2-e218-4f85-b39e-4deaf501dd40" />
 - Auto-generated usernames (first initial + last name convention)
+- <img width="996" height="513" alt="image" src="https://github.com/user-attachments/assets/2ae252b6-fd75-4a8c-afc9-45ac9c313fd7" />
 - Created 4 security groups (GRP-IT, GRP-HR, GRP-Sales, GRP-Finance)
 - Automatically assigned users to correct department groups
 
