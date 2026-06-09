@@ -30,6 +30,7 @@ Built a virtualized enterprise-style hybrid identity environment using Oracle Vi
 ### Domain Join
 - Configured Windows 11 Pro client DNS to point to DC01
 - Successfully joined client to corp.lab domain
+- <img width="1017" height="814" alt="image" src="https://github.com/user-attachments/assets/dd30fc29-1b65-44c8-bf0c-7015871d671f" />
 - Verified end-to-end domain authentication
 
 ### Microsoft Entra Connect Sync
@@ -38,6 +39,7 @@ Built a virtualized enterprise-style hybrid identity environment using Oracle Vi
 - Installed and configured Entra Connect v2.6.3.0
 - Enabled Password Hash Synchronization
 - Confirmed all 13 users synced to Entra ID with On-premises sync = Yes
+- <img width="1911" height="895" alt="image" src="https://github.com/user-attachments/assets/4a357d80-fbf0-4187-b917-5c6f8792caa2" />
 - Configured automatic delta syncs every 30 minutes
 
 ## Troubleshooting Encountered
