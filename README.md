@@ -20,6 +20,7 @@ Built a virtualized enterprise-style hybrid identity environment using Oracle Vi
 
 ### PowerShell Automation
 - Scripted provisioning of 13 domain users across 4 departments
+- <img width="586" height="396" alt="image" src="https://github.com/user-attachments/assets/92177449-8827-40e4-8285-b429bf05ef93" />
 - Auto-generated usernames (first initial + last name convention)
 - Created 4 security groups (GRP-IT, GRP-HR, GRP-Sales, GRP-Finance)
 - Automatically assigned users to correct department groups
