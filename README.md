@@ -59,3 +59,82 @@ Built a virtualized enterprise-style hybrid identity environment using Oracle Vi
 
 ## Technologies Used
 `Active Directory` `Windows Server 2022` `Microsoft Entra ID` `Entra Connect` `PowerShell` `Windows 11` `Oracle VirtualBox` `DNS` `Group Policy`
+---
+
+## Phase 2 — Enterprise Scale Expansion
+
+### Overview
+Expanded the lab from a basic 13-user proof of concept to an enterprise-scale identity environment simulating a financial services company with strict compliance requirements including SOX separation of duties and GDPR data minimization.
+
+### What Was Built
+
+#### Enterprise OU Restructure
+- Replaced 4 basic department OUs with a granular 8-department hierarchy containing 35+ sub-OUs
+- Departments: Technology, Finance-Accounting, Human-Resources, Operations, Sales-BD, Legal-Compliance, Marketing, Executive
+- Added dedicated Service-Accounts and Security-Groups OUs following enterprise best practices
+- Migrated all existing users to correct new OUs using a planned migration script
+
+#### 92-Group RBAC Security Structure
+Built a 4-tier security group architecture:
+
+**Tier 1 - Department Groups (8 groups)**
+Top-level department membership used for broad department-wide access and reporting
+
+**Tier 2 - Sub-Department Groups (35 groups)**
+Granular team membership enabling least-privilege access at the team level
+
+**Tier 3 - Access Level Groups (34 groups)**
+Controls what users can access, not just what team they are on. Includes:
+- Finance ReadOnly vs ReadWrite (SOX separation of duties)
+- HR-Confidential (GDPR data minimization)
+- Privileged-Admins (minimal privileged footprint)
+- MFA-Required (zero trust enforcement)
+- Executive-Access (high-value account protection)
+
+**Tier 4 - Application Groups (12 groups)**
+Application entitlement groups for Salesforce, ServiceNow, SharePoint, PowerBI, Teams, and Exchange. Only members of the relevant app group can access that application through SSO.
+
+#### Bulk User Provisioning — 385 Users via PowerShell
+Wrote an enterprise provisioning script simulating what an IAM platform like SailPoint does when reading from an HR system:
+- Generated 385 realistic users with diverse names across all departments
+- Automatic username generation with duplicate handling
+- Every user placed in correct sub-department OU
+- Every user assigned correct groups across all 4 tiers based on role
+- Manager attribute set on every user pointing to department leadership
+- SOX separation of duties enforced at provisioning time
+- All new hires added to GRP-New-Hires for onboarding workflow simulation
+- Full audit log written to C:\Scripts\Logs\bulk-provision-log.txt
+
+#### Leadership Hierarchy
+Promoted existing 13 users to senior leadership roles with appropriate elevated group memberships:
+- C-Suite executives: CRO, CFO with Board-Materials and Strategic-Planning access
+- VPs and Directors with Executive-Access and Conditional-Access-Strict enforcement
+- Department managers as the manager attribute target for all staff
+
+### Compliance Controls Demonstrated
+
+| Control | Implementation |
+|---------|---------------|
+| SOX Separation of Duties | AP and AR users in completely separate groups, verified by automated check |
+| GDPR Data Minimization | GRP-HR-Confidential limited to 8 users out of 401 |
+| Least Privilege | APP-Salesforce-Users contains only Sales staff, not all 401 users |
+| Privileged Access | GRP-Privileged-Admins contains only 2 accounts |
+| Zero Trust | GRP-MFA-Required contains 398 of 401 users |
+| Audit Trail | Every provisioning action logged with timestamp |
+
+### Verification Results
+
+| Metric | Result |
+|--------|--------|
+| Total AD users | 401 |
+| Total Entra ID synced users | 403 |
+| Security groups | 92 |
+| Departments | 8 |
+| Sub-department OUs | 35+ |
+| SOX AP/AR overlap check | PASSED - 0 violations |
+| Users with manager attribute | 385 |
+| Provisioning errors | 0 |
+
+### Technologies Used
+`Active Directory` `PowerShell` `Windows Server 2022` `Microsoft Entra ID` `Entra Connect` `RBAC` `SOX Compliance` `GDPR` `Identity Governance`
+
