@@ -69,12 +69,17 @@ Expanded the lab from a basic 13-user proof of concept to an enterprise-scale id
 ### What Was Built
 
 #### Enterprise OU Restructure
+<img width="646" height="818" alt="image" src="https://github.com/user-attachments/assets/8387125e-7e01-4403-9849-6fe0c37912e9" />
+
 - Replaced 4 basic department OUs with a granular 8-department hierarchy containing 35+ sub-OUs
 - Departments: Technology, Finance-Accounting, Human-Resources, Operations, Sales-BD, Legal-Compliance, Marketing, Executive
 - Added dedicated Service-Accounts and Security-Groups OUs following enterprise best practices
 - Migrated all existing users to correct new OUs using a planned migration script
 
 #### 92-Group RBAC Security Structure
+<img width="796" height="572" alt="image" src="https://github.com/user-attachments/assets/c234410f-c5f1-431d-82b8-c26b47a444ad" />
+<img width="452" height="748" alt="image" src="https://github.com/user-attachments/assets/9ee06e60-98f0-4a14-8a34-ac2140ef6bde" />
+
 Built a 4-tier security group architecture:
 
 **Tier 1 - Department Groups (8 groups)**
@@ -95,6 +100,8 @@ Controls what users can access, not just what team they are on. Includes:
 Application entitlement groups for Salesforce, ServiceNow, SharePoint, PowerBI, Teams, and Exchange. Only members of the relevant app group can access that application through SSO.
 
 #### Bulk User Provisioning — 385 Users via PowerShell
+<img width="682" height="713" alt="image" src="https://github.com/user-attachments/assets/befab960-0fe3-4bb1-b042-b147a3defce2" />
+
 Wrote an enterprise provisioning script simulating what an IAM platform like SailPoint does when reading from an HR system:
 - Generated 385 realistic users with diverse names across all departments
 - Automatic username generation with duplicate handling
@@ -123,6 +130,8 @@ Promoted existing 13 users to senior leadership roles with appropriate elevated 
 | Audit Trail | Every provisioning action logged with timestamp |
 
 ### Verification Results
+<img width="554" height="783" alt="image" src="https://github.com/user-attachments/assets/8ec149dd-3dd7-4fab-bf62-420645ffc88e" />
+<img width="848" height="161" alt="image" src="https://github.com/user-attachments/assets/1c63de87-0dcc-4942-ac24-49716910dee8" />
 
 | Metric | Result |
 |--------|--------|
@@ -134,6 +143,8 @@ Promoted existing 13 users to senior leadership roles with appropriate elevated 
 | SOX AP/AR overlap check | PASSED - 0 violations |
 | Users with manager attribute | 385 |
 | Provisioning errors | 0 |
+<img width="1903" height="909" alt="image" src="https://github.com/user-attachments/assets/936147d3-302d-4e6a-a5cf-a748355552f3" />
+
 
 ### Technologies Used
 `Active Directory` `PowerShell` `Windows Server 2022` `Microsoft Entra ID` `Entra Connect` `RBAC` `SOX Compliance` `GDPR` `Identity Governance`
